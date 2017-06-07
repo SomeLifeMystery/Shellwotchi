@@ -1,6 +1,6 @@
 /*
  *
- * gcc -g3 -o Shellwotchi shellwotchi.c raw_data.c game_data.c events.c display.c ../ansiGraphic/ansiGraphic2.c -I ../ansiGraphic/
+ * gcc -g3 -o Shellwotchi shellwotchi.c raw_data.c game_data.c events.c display.c process.c ../ansiGraphic/ansiGraphic2.c -I ../ansiGraphic/
  *
  */
 
@@ -22,10 +22,6 @@ game_t game = {
   .state = GAMESTATE_STARTUP,
   .event = 0
 };
-
-int process_GAMESTATE_STARTUP() {
-  return 0;
-}
 
 int main() {
   data_load_loading_screen();
