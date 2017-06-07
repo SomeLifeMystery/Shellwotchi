@@ -74,6 +74,25 @@ int handle_events_GAMESTATE_MAIN() {
 	game.selection_index=0;
       break;
     case 4414235://RIGHT
+      switch (game.selection_index) {
+      case -1:
+	break;
+      case 0:
+	break;
+      case 1:
+	break;
+      case 2:
+	break;
+      case 3:
+	break;
+      case 4:
+	break;
+      case 5:
+	break;
+      case 6:
+	break;
+      default:break;
+      }
       break;
     case 4479771://LEFT
       game.selection_index = -1;
