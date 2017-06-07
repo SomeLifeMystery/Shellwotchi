@@ -1,3 +1,6 @@
+#ifndef GLOBAL_H_
+#define GLOBAL_H_
+
 #include "ansiGraphic2.h"
 
 enum {
@@ -40,3 +43,5 @@ typedef struct {
 } game_t;
 
 extern game_t game;
+
+#endif /* !GLOBAL_H_ */
