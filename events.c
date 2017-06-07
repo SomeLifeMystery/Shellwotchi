@@ -59,9 +59,24 @@ int handle_events_GAMESTATE_STARTUP() {
 
 int handle_events_GAMESTATE_MAIN() {
     switch (game.event) {
-    case 27:
+    case 27://ESC
       mode_raw(0);
       exit(0);
+      break;
+    case 4283163://UP
+      game.selection_index-=1;
+      if (game.selection_index < 0)
+	game.selection_index=6;
+      break;
+    case 4348699://DOWN
+      game.selection_index+=1;
+      if (game.selection_index > 6)
+	game.selection_index=0;
+      break;
+    case 4414235://RIGHT
+      break;
+    case 4479771://LEFT
+      game.selection_index = -1;
       break;
     }
 }

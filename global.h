@@ -6,6 +6,7 @@ typedef struct {
   int height;
   int frames_per_second;
   int state;
+  int selection_index;
   int event;
   char player_name[5];
   char pet_name[5];
