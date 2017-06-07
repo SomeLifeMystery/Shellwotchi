@@ -55,3 +55,12 @@ int handle_events_GAMESTATE_STARTUP() {
       break;
     }
 }
+
+int handle_events_GAMESTATE_MAIN() {
+    switch (game.event) {
+    case 27:
+      mode_raw(0);
+      exit(0);
+      break;
+    }
+}
