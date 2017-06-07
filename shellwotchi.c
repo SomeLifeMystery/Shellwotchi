@@ -36,9 +36,13 @@ int main() {
     game.event = get_events();
     switch (game.state) {
     case GAMESTATE_STARTUP:
-      display_GAMESTATE_STARTUP(screen);
+      display_GAMESTATE_STARTUP();
       process_GAMESTATE_STARTUP();
       handle_events_GAMESTATE_STARTUP();
+      break;
+    case GAMESTATE_MAIN:
+      display_GAMESTATE_MAIN();
+      handle_events_GAMESTATE_MAIN();
       break;
     default:
       exit(-1);
