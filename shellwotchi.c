@@ -1,6 +1,7 @@
 /*
  *
- * gcc -o Shellwotchi shellwotchi.c ../ansiGraphic/ansiGraphic2.c -I ../ansiGraphic/
+ * gcc -g3 -o Shellwotchi shellwotchi.c raw_data.c game_data.c ../ansiGraphic/ansiGraphic2.c -I ../ansiGraphic/
+ *
  *
  */
 
@@ -11,49 +12,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <sys/time.h>
-#include "ansiGraphic2.h"
-
-enum {
-  GAMESTATE_STARTUP,
-  GAMESTATE_MAIN,
-  GAMESTATE_EXIT
-};
-
-struct s_raw_data {
-  int loading_screen_w;
-  int loading_screen_h;
-  char loading_screen[13*2];
-};
-
-struct s_raw_data raw_data = {
-  .loading_screen_w = 13,
-  .loading_screen_h = 2,
-  .loading_screen = {
-    'S','h','e','l','l','w','o','t','c','h','i',' ','!',
-    'L','o','a','d','i','n','g','.','.','.',' ',' ',' '
-  }
-};
-
-struct s_game_data {
-  ansigraphic_sprite_t loading_screen;
-};
-
-struct s_game_data game_data;
-
-typedef struct {
-  int width;
-  int height;
-  int frames_per_second;
-  int state;
-  int event;
-  char player_name[5];
-  char pet_name[5];
-  char pet_parent_name[2][5];
-  unsigned char pet_happiness;
-  unsigned char pet_food;
-  unsigned char pet_poo;
-  unsigned char pet_health;
-} game_t;
+#include "global.h"
 
 game_t game = {
   .height = 20,
