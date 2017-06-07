@@ -25,24 +25,18 @@ struct s_raw_data {
   int ui_sport_w;
   int ui_sport_h;
   char ui_sport[15*4];
-  int ui_multi_w;
-  int ui_multi_h;
-  char ui_multi[15*4];
-  int ui_education_w;
-  int ui_education_h;
-  char ui_education[15*4];
+  int ui_interaction_w;
+  int ui_interaction_h;
+  char ui_interaction[15*4];
   int ui_medecine_w;
   int ui_medecine_h;
   char ui_medecine[15*4];
   int ui_light_w;
   int ui_light_h;
   char ui_light[15*4];
-  int ui_fun_w;
-  int ui_fun_h;
-  char ui_fun[15*4];
-  int ui_attitude_w;
-  int ui_attitude_h;
-  char ui_attitude[15*4];
+  int ui_mood_w;
+  int ui_mood_h;
+  char ui_mood[15*4];
 };
 
 extern struct s_raw_data raw_data;
@@ -53,12 +47,10 @@ struct s_game_data {
   ansigraphic_sprite_t ui_food;
   ansigraphic_sprite_t ui_bath;
   ansigraphic_sprite_t ui_sport;
-  ansigraphic_sprite_t ui_multi;
-  ansigraphic_sprite_t ui_education;
+  ansigraphic_sprite_t ui_interaction;
   ansigraphic_sprite_t ui_medecine;
   ansigraphic_sprite_t ui_light;
-  ansigraphic_sprite_t ui_fun;
-  ansigraphic_sprite_t ui_attitude;
+  ansigraphic_sprite_t ui_mood;
 };
 
 extern struct s_game_data game_data;
