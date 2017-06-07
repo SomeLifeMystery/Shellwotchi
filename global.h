@@ -44,4 +44,6 @@ typedef struct {
 
 extern game_t game;
 
+extern ansigraphic_image_t* screen;
+
 #endif /* !GLOBAL_H_ */
