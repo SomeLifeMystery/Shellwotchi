@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include "global.h"
+
 #include "events.h"
 
 void mode_raw(int activer)

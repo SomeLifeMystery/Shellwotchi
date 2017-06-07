@@ -1,4 +1,4 @@
-#include "global.h"
+#include "raw_data.h"
 
 struct s_raw_data raw_data = {
   .loading_screen_w = 13,

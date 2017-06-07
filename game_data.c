@@ -1,4 +1,6 @@
 #include "global.h"
+#include "raw_data.h"
+
 #include "game_data.h"
 
 struct s_game_data game_data;

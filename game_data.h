@@ -1,6 +1,22 @@
 #ifndef GAME_DATA_H_
 #define GAME_DATA_H_
 
+#include "ansiGraphic2.h"
+
+struct s_game_data {
+  ansigraphic_sprite_t loading_screen;
+  ansigraphic_sprite_t ui_stats;
+  ansigraphic_sprite_t ui_food;
+  ansigraphic_sprite_t ui_bath;
+  ansigraphic_sprite_t ui_sport;
+  ansigraphic_sprite_t ui_interaction;
+  ansigraphic_sprite_t ui_medecine;
+  ansigraphic_sprite_t ui_light;
+  ansigraphic_sprite_t ui_mood;
+};
+
+extern struct s_game_data game_data;
+
 int data_load_loading_screen();
 int data_load_ui_stats();
 int data_load_ui_food();

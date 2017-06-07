@@ -1,4 +1,6 @@
 #include "global.h"
+#include "game_data.h"
+
 #include "display.h"
 
 ansigraphic_image_t* screen;

@@ -1,6 +1,6 @@
 /*
  *
- * gcc -g3 -o Shellwotchi shellwotchi.c raw_data.c game_data.c events.c display.c process.c ../ansiGraphic/ansiGraphic2.c -I ../ansiGraphic/
+ * gcc -g3 -o Shellwotchi shellwotchi.c raw_data.c game_data.c events.c display.c process.c state_manager.c ../ansiGraphic/ansiGraphic2.c -I ../ansiGraphic/
  *
  */
 
@@ -14,6 +14,7 @@
 #include "events.h"
 #include "game_data.h"
 #include "display.h"
+#include "state_manager.h"
 
 game_t game = {
   .height = 20,

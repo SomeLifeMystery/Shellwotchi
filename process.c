@@ -1,4 +1,6 @@
 #include "global.h"
+#include "state_manager.h"
+
 #include "process.h"
 
 int process_GAMESTATE_STARTUP() {
