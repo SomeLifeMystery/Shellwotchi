@@ -19,12 +19,28 @@ enum {
   GAMESTATE_EXIT
 };
 
-struct s_game_data {
-  ansigraphic_image_t* loading_screen;
+struct s_raw_data {
+  int loading_screen_w;
+  int loading_screen_h;
+  char loading_screen[13*2];
 };
 
+struct s_raw_data raw_data = {
+  .loading_screen_w = 13,
+  .loading_screen_h = 2,
+  .loading_screen = {
+    'S','h','e','l','l','w','o','t','c','h','i',' ','!',
+    'L','o','a','d','i','n','g','.','.','.',' ',' ',' '
+  }
+};
+
+struct s_game_data {
+  ansigraphic_sprite_t loading_screen;
+};
+
+struct s_game_data game_data;
+
 typedef struct {
-  struct s_game_data data;
   int width;
   int height;
   int frames_per_second;
@@ -38,6 +54,34 @@ typedef struct {
   unsigned char pet_poo;
   unsigned char pet_health;
 } game_t;
+
+game_t game = {
+  .height = 20,
+  .width = 80,
+  .frames_per_second = 15,
+  .state = GAMESTATE_STARTUP,
+  .event = 0
+};
+
+int data_loading_screen() {
+  ansigraphic_ivector2_t xy;
+  int x, y;
+  int width = raw_data.loading_screen_w;
+  int height = raw_data.loading_screen_h;
+  game_data.loading_screen.image = ansigraphic_newImage(width, height);
+  game_data.loading_screen.xy.x = game.width/2 - width;
+  game_data.loading_screen.xy.y = game.height/2 - height;
+  y = -1;
+  while (++y < height) {
+    x = -1;
+    while (++x < width) {
+      xy.x = x;
+      xy.y = height - 1 - y;
+      ansigraphic_pixelSetColor(game_data.loading_screen.image, &xy, "015", "000");
+      ansigraphic_pixelSetValue(game_data.loading_screen.image, &xy, raw_data.loading_screen[x + (y*width)]);
+    }
+  }
+}
 
 void mode_raw(int activer)
 {
@@ -87,15 +131,15 @@ void display_ui() {
 void display_pet() {
 }
 
-int display_GAMESTATE_STARTUP(game_t* game, ansigraphic_image_t* screen) {
+int display_GAMESTATE_STARTUP(ansigraphic_image_t* screen) {
   ansigraphic_imageClear(screen);
-  game->data.loading_screen = ansigraphic_newImage(screen->width, screen->height);
+  ansigraphic_spritePrint(screen, &game_data.loading_screen);
   ansigraphic_imagePrint(screen);
   return 0;
 }
 
-int handle_events_GAMESTATE_STARTUP(game_t* game) {
-    switch (game->event) {
+int handle_events_GAMESTATE_STARTUP() {
+    switch (game.event) {
     case 27:
       mode_raw(0);
       exit(0);
@@ -103,18 +147,12 @@ int handle_events_GAMESTATE_STARTUP(game_t* game) {
     }
 }
 
-int process_GAMESTATE_STARTUP(game_t* game) {
+int process_GAMESTATE_STARTUP() {
   return 0;
 }
 
 int main() {
-  game_t game = {
-    .height = 20,
-    .width = 80,
-    .frames_per_second = 15,
-    .state = GAMESTATE_STARTUP,
-    .event = 0
-  };
+  data_loading_screen();
   ansigraphic_image_t* screen = ansigraphic_newImage(game.width, game.height);
   clock_t timer, clocked = 0;
   int delay = 1000 / game.frames_per_second;
@@ -126,9 +164,9 @@ int main() {
     game.event = get_events();
     switch (game.state) {
     case GAMESTATE_STARTUP:
-      display_GAMESTATE_STARTUP(&game, screen);
-      process_GAMESTATE_STARTUP(&game);
-      handle_events_GAMESTATE_STARTUP(&game);
+      display_GAMESTATE_STARTUP(screen);
+      process_GAMESTATE_STARTUP();
+      handle_events_GAMESTATE_STARTUP();
       break;
     default:
       exit(-1);
