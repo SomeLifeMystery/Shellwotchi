@@ -1,6 +1,6 @@
 /*
  *
- * gcc -g3 -o Shellwotchi shellwotchi.c raw_data.c game_data.c events.c display.c process.c state_manager.c dhms_clock.c ../ansiGraphic/ansiGraphic2.c -I ../ansiGraphic/
+ * gcc -g3 -o Shellwotchi shellwotchi.c raw_data.c game_data.c events.c display.c process.c state_manager.c dhms_clock.c ansiGraphic/ansiGraphic2.c -I ansiGraphic/
  *
  */
 
