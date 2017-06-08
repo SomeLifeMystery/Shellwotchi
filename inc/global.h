@@ -15,6 +15,7 @@ typedef struct {
   char pet_parent_name[2][5];
   unsigned char pet_happiness;
   unsigned char pet_food;
+  unsigned char pet_weight;
   unsigned char pet_poo;
   unsigned char pet_health;
 } game_t;
