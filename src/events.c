@@ -51,8 +51,7 @@ int get_events() {
 int handle_events_GAMESTATE_STARTUP() {
     switch (game.event) {
     case 27:
-      mode_raw(0);
-      exit(0);
+      set_state_GAMESTATE_EXIT();
       break;
     }
 }
@@ -60,8 +59,7 @@ int handle_events_GAMESTATE_STARTUP() {
 int handle_events_GAMESTATE_MAIN() {
     switch (game.event) {
     case 27://ESC
-      mode_raw(0);
-      exit(0);
+      set_state_GAMESTATE_EXIT();
       break;
     case 4283163://UP
       game.selection_index-=1;
@@ -111,8 +109,7 @@ int handle_events_GAMESTATE_MAIN() {
 int handle_events_GAMESTATE_TIME() {
     switch (game.event) {
     case 27://ESC
-      mode_raw(0);
-      exit(0);
+      set_state_GAMESTATE_EXIT();
       break;
     case 4414235://RIGHT
       set_state_GAMESTATE_MAIN();

@@ -19,6 +19,7 @@
 #include "saveManager.h"
 
 game_t game = {
+  .magic = 123456789666,
   .height = 20,
   .width = 80,
   .frames_per_second = 15,
@@ -53,6 +54,9 @@ int main(int ac, char**av) {
     case GAMESTATE_TIME:
       display_GAMESTATE_TIME();
       handle_events_GAMESTATE_TIME();
+      break;
+    case GAMESTATE_EXIT:
+      process_GAMESTATE_EXIT();
       break;
     default:
       display_GAMESTATE_STARTUP();

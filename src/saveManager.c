@@ -13,7 +13,7 @@ char* saveFile;
 int saveManager_load() {
   int fd, read_byte, size=(sizeof(game) + sizeof(dhms_clock));
 
-  fd = open("foo.txt", O_RDWR);
+  fd = open(saveFile, O_RDWR);
   lseek(fd, -size, SEEK_END);
   read(fd, &game, sizeof(game));
   read(fd, &dhms_clock, sizeof(dhms_clock));
@@ -30,5 +30,6 @@ int saveManager_save() {
   write(fd, &dhms_clock, sizeof(dhms_clock));
   close(fd);
 
+  printf("game saved\n");
   return 0;
 }

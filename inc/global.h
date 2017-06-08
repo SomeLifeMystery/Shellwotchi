@@ -2,6 +2,7 @@
 #define GLOBAL_H_
 
 typedef struct {
+  unsigned long magic;
   int width;
   int height;
   int frames_per_second;

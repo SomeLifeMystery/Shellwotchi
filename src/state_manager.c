@@ -2,6 +2,10 @@
 
 #include "state_manager.h"
 
+void set_state_GAMESTATE_EXIT() {
+  game.state = GAMESTATE_EXIT;
+}
+
 void set_state_GAMESTATE_MAIN() {
   game.state = GAMESTATE_MAIN;
   game.selection_index = -1;

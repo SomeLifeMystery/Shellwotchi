@@ -15,6 +15,7 @@ enum {
   GAMESTATE_EXIT
 };
 
+void set_state_GAMESTATE_EXIT();
 void set_state_GAMESTATE_MAIN();
 void set_state_GAMESTATE_STATS();
 void set_state_GAMESTATE_FOOD();
