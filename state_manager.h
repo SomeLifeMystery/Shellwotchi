@@ -15,14 +15,14 @@ enum {
   GAMESTATE_EXIT
 };
 
-void set_sate_GAMESTATE_MAIN();
-void set_sate_GAMESTATE_STATS();
-void set_sate_GAMESTATE_FOOD();
-void set_sate_GAMESTATE_BATH();
-void set_sate_GAMESTATE_SPORT();
-void set_sate_GAMESTATE_INTERACTION();
-void set_sate_GAMESTATE_MEDECINE();
-void set_sate_GAMESTATE_LIGHT();
-void set_sate_GAMESTATE_TIME();
+void set_state_GAMESTATE_MAIN();
+void set_state_GAMESTATE_STATS();
+void set_state_GAMESTATE_FOOD();
+void set_state_GAMESTATE_BATH();
+void set_state_GAMESTATE_SPORT();
+void set_state_GAMESTATE_INTERACTION();
+void set_state_GAMESTATE_MEDECINE();
+void set_state_GAMESTATE_LIGHT();
+void set_state_GAMESTATE_TIME();
 
 #endif /* !STATE_MANAGER_H_ */

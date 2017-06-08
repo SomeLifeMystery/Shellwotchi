@@ -76,20 +76,28 @@ int handle_events_GAMESTATE_MAIN() {
     case 4414235://RIGHT
       switch (game.selection_index) {
       case -1:
+	set_state_GAMESTATE_TIME();
 	break;
       case 0:
+	set_state_GAMESTATE_STATS();
 	break;
       case 1:
+	set_state_GAMESTATE_FOOD();
 	break;
       case 2:
+	set_state_GAMESTATE_BATH();
 	break;
       case 3:
+	set_state_GAMESTATE_SPORT();
 	break;
       case 4:
+	set_state_GAMESTATE_INTERACTION();
 	break;
       case 5:
+	set_state_GAMESTATE_MEDECINE();
 	break;
       case 6:
+	set_state_GAMESTATE_LIGHT();
 	break;
       default:break;
       }
