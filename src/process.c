@@ -9,10 +9,14 @@
 #include "process.h"
 
 int process_GAMESTATE_STARTUP() {
-  game_t tmp; memcpy(&tmp, &game, sizeof(game));
   dhms_clock_reset();
+  game_t tmpGame; memcpy(&tmpGame, &game, sizeof(game));
+  struct s_dhms_clock tmpClock; memcpy(&tmpClock, &dhms_clock, sizeof(dhms_clock));
   saveManager_load();
-  if (game.magic!=123456789666) memcpy(&game, &tmp, sizeof(game));
+  if (game.magic!=123456789666) {
+    memcpy(&game, &tmpGame, sizeof(game));
+    memcpy(&dhms_clock, &tmpClock, sizeof(dhms_clock));
+  }
   data_load_ui_stats();
   data_load_ui_food();
   data_load_ui_bath();
