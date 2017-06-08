@@ -8,6 +8,7 @@ typedef struct {
   int state;
   int selection_index;
   int event;
+  char lightOnOff;
   char player_name[5];
   char pet_name[5];
   char pet_parent_name[2][5];

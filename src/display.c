@@ -83,8 +83,10 @@ int display_GAMESTATE_STARTUP() {
 }
 
 int display_GAMESTATE_MAIN() {
+  if (game.lightOnOff == 1) {
   ansigraphic_imageFill(screen, ' ', "000", "015");
   display_pet();
+  } else ansigraphic_imageFill(screen, ' ', "000", "000");
   display_ui();
   ansigraphic_imagePrint(screen);
   return 0;

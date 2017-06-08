@@ -22,7 +22,8 @@ game_t game = {
   .width = 80,
   .frames_per_second = 15,
   .state = GAMESTATE_STARTUP,
-  .event = 0
+  .event = 0,
+  .lightOnOff = 1
 };
 
 int main() {

@@ -37,6 +37,8 @@ void set_state_GAMESTATE_MEDECINE() {
 
 void set_state_GAMESTATE_LIGHT() {
   game.state = GAMESTATE_LIGHT;
+  game.lightOnOff = game.lightOnOff == 1 ? 0 : 1;
+  set_state_GAMESTATE_MAIN();
 }
 
 void set_state_GAMESTATE_TIME() {
