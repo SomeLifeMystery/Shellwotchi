@@ -1,0 +1,3 @@
+[submodule "ansiGraphic"]
+	path = ansiGraphic
+	url = https://github.com/SomeLifeMystery/ansiGraphic.git
