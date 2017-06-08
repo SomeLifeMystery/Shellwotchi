@@ -29,6 +29,9 @@ struct s_raw_data {
   int ui_mood_w;
   int ui_mood_h;
   char ui_mood[15*4];
+  int ui_time_w;
+  int ui_time_h;
+  char ui_time[8*1];
 };
 
 extern struct s_raw_data raw_data;

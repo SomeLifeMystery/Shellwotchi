@@ -13,6 +13,7 @@ struct s_game_data {
   ansigraphic_sprite_t ui_medecine;
   ansigraphic_sprite_t ui_light;
   ansigraphic_sprite_t ui_mood;
+  ansigraphic_sprite_t ui_time;
 };
 
 extern struct s_game_data game_data;
@@ -26,5 +27,6 @@ int data_load_ui_interaction();
 int data_load_ui_medecine();
 int data_load_ui_light();
 int data_load_ui_mood();
+int data_load_ui_time();
 
 #endif /* !GAME_DATA_H_ */

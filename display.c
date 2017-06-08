@@ -1,5 +1,6 @@
 #include "global.h"
 #include "game_data.h"
+#include "dhms_clock.h"
 
 #include "display.h"
 
@@ -87,3 +88,22 @@ int display_GAMESTATE_MAIN() {
   return 0;
 }
 
+int display_GAMESTATE_TIME() {
+  ansigraphic_ivector2_t xy; xy.y=0;
+  ansigraphic_imageFill(screen, ' ', "000", "015");
+  xy.x = 0;
+  ansigraphic_pixelSetValue(game_data.ui_time.image, &xy, 48 + (dhms_clock.h / 10));
+  xy.x = 1;
+  ansigraphic_pixelSetValue(game_data.ui_time.image, &xy, 48 + (dhms_clock.h % 10));
+  xy.x = 3;
+  ansigraphic_pixelSetValue(game_data.ui_time.image, &xy, 48 + (dhms_clock.m / 10));
+  xy.x = 4;
+  ansigraphic_pixelSetValue(game_data.ui_time.image, &xy, 48 + (dhms_clock.m % 10));
+  xy.x = 6;
+  ansigraphic_pixelSetValue(game_data.ui_time.image, &xy, 48 + (dhms_clock.s / 10));
+  xy.x = 7;
+  ansigraphic_pixelSetValue(game_data.ui_time.image, &xy, 48 + (dhms_clock.s % 10));
+  ansigraphic_spritePrint(screen, &game_data.ui_time);
+  ansigraphic_imagePrint(screen);
+  return 0;
+}

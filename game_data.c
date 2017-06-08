@@ -121,3 +121,12 @@ int data_load_ui_mood() {
   return 0;
 }
 
+int data_load_ui_time() {
+  int width = raw_data.ui_time_w;
+  int height = raw_data.ui_time_h;
+  game_data.ui_time.image = ansigraphic_newImage(width, height);
+  game_data.ui_time.xy.x = game.width/2 - width;
+  game_data.ui_time.xy.y = game.height/2 - height;
+  data_load_raw(game_data.ui_time.image, raw_data.ui_time);
+  return 0;
+}

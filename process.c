@@ -1,5 +1,6 @@
 #include "global.h"
 #include "state_manager.h"
+#include "dhms_clock.h"
 
 #include "process.h"
 
@@ -12,6 +13,8 @@ int process_GAMESTATE_STARTUP() {
   data_load_ui_medecine();
   data_load_ui_light();
   data_load_ui_mood();
+  data_load_ui_time();
+  dhms_clock_reset();
   set_state_GAMESTATE_MAIN();
   return 0;
 }

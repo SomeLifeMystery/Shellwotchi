@@ -1,6 +1,6 @@
 /*
  *
- * gcc -g3 -o Shellwotchi shellwotchi.c raw_data.c game_data.c events.c display.c process.c state_manager.c ../ansiGraphic/ansiGraphic2.c -I ../ansiGraphic/
+ * gcc -g3 -o Shellwotchi shellwotchi.c raw_data.c game_data.c events.c display.c process.c state_manager.c dhms_clock.c ../ansiGraphic/ansiGraphic2.c -I ../ansiGraphic/
  *
  */
 
@@ -15,6 +15,7 @@
 #include "game_data.h"
 #include "display.h"
 #include "state_manager.h"
+#include "dhms_clock.h"
 
 game_t game = {
   .height = 20,
@@ -30,9 +31,10 @@ int main() {
   clock_t timer, clocked = 0;
   int delay = 1000 / game.frames_per_second;
   int event = 0;
-
+  
   mode_raw(1);
   while (42) {
+    dhms_clock_tick();
     timer = clocked;
     game.event = get_events();
     switch (game.state) {
@@ -44,6 +46,10 @@ int main() {
     case GAMESTATE_MAIN:
       display_GAMESTATE_MAIN();
       handle_events_GAMESTATE_MAIN();
+      break;
+    case GAMESTATE_TIME:
+      display_GAMESTATE_TIME();
+      handle_events_GAMESTATE_TIME();
       break;
     default:
       exit(-1);

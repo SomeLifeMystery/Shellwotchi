@@ -107,3 +107,18 @@ int handle_events_GAMESTATE_MAIN() {
       break;
     }
 }
+
+int handle_events_GAMESTATE_TIME() {
+    switch (game.event) {
+    case 27://ESC
+      mode_raw(0);
+      exit(0);
+      break;
+    case 4414235://RIGHT
+      set_state_GAMESTATE_MAIN();
+      break;
+    case 4479771://LEFT
+      set_state_GAMESTATE_MAIN();
+      break;
+    }
+}
