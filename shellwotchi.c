@@ -52,7 +52,9 @@ int main() {
       handle_events_GAMESTATE_TIME();
       break;
     default:
-      exit(-1);
+      display_GAMESTATE_STARTUP();
+      handle_events_GAMESTATE_STARTUP();
+      break;
     }
     clocked = clock() / CLOCKS_PER_SEC;
     timer = delay - (clocked - timer);
