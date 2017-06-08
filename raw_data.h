@@ -32,6 +32,10 @@ struct s_raw_data {
   int ui_time_w;
   int ui_time_h;
   char ui_time[8*1];
+  int pet_age0_w;
+  int pet_age0_h;
+  int pet_age0_nbf;
+  char pet_age0[2][40*20];
 };
 
 extern struct s_raw_data raw_data;

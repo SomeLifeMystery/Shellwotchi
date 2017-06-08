@@ -130,3 +130,17 @@ int data_load_ui_time() {
   data_load_raw(game_data.ui_time.image, raw_data.ui_time);
   return 0;
 }
+
+int data_load_pet_age0() {
+  int width = raw_data.pet_age0_w;
+  int height = raw_data.pet_age0_h;
+  game_data.pet_age0 = ansigraphic_newAnimatedSprite();
+  ansigraphic_animatedSprite_pushFrame(game_data.pet_age0, ansigraphic_newImage(width, height));
+  ansigraphic_animatedSprite_pushFrame(game_data.pet_age0, ansigraphic_newImage(width, height));
+  game_data.pet_age0->xy.x = 20;
+  game_data.pet_age0->xy.y = 0;
+  game_data.pet_age0->frameRate /= 2;
+  data_load_raw(game_data.pet_age0->imageFrames[0], raw_data.pet_age0[0]);
+  data_load_raw(game_data.pet_age0->imageFrames[1], raw_data.pet_age0[1]);
+  return 0;
+}

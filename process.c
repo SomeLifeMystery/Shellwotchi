@@ -15,6 +15,7 @@ int process_GAMESTATE_STARTUP() {
   data_load_ui_mood();
   data_load_ui_time();
   dhms_clock_reset();
+  data_load_pet_age0();
   set_state_GAMESTATE_MAIN();
   return 0;
 }
