@@ -16,6 +16,7 @@
 #include "display.h"
 #include "state_manager.h"
 #include "dhms_clock.h"
+#include "saveManager.h"
 
 game_t game = {
   .height = 20,
@@ -26,7 +27,8 @@ game_t game = {
   .lightOnOff = 1
 };
 
-int main() {
+int main(int ac, char**av) {
+  saveFile=av[0];
   data_load_loading_screen();
   screen = ansigraphic_newImage(game.width, game.height);
   clock_t timer, clocked = 0;

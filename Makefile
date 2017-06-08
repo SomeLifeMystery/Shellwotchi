@@ -18,6 +18,7 @@ SRCS=	ansiGraphic/ansiGraphic2.c\
 	src/raw_data.c\
 	src/shellwotchi.c\
 	src/state_manager.c\
+	src/saveManager.c\
 
 OBJS=	$(SRCS:.c=.o)
 
@@ -25,6 +26,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+	printf "%0200d" 1 >> $(NAME)
 
 clean:
 	$(RM) $(OBJS)
