@@ -3,6 +3,10 @@
 
 #include "ansiGraphic2.1.h"
 
+#define WIDTH 80
+#define HEIGHT 20
+#define FRAMES_PER_SECOND 15
+
 extern ansigraphic_image_t* screen;
 
 void display_ui();

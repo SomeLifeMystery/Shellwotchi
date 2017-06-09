@@ -1,5 +1,6 @@
 #include "global.h"
 #include "raw_data.h"
+#include "display.h"
 
 #include "game_data.h"
 
@@ -35,8 +36,8 @@ int data_load_loading_screen() {
   int width = raw_data.loading_screen_w;
   int height = raw_data.loading_screen_h;
   game_data.loading_screen.image = ansigraphic_newImage(width, height);
-  game_data.loading_screen.xy.x = game.width/2 - width;
-  game_data.loading_screen.xy.y = game.height/2 - height;
+  game_data.loading_screen.xy.x = WIDTH/2 - width;
+  game_data.loading_screen.xy.y = HEIGHT/2 - height;
   data_load_raw(game_data.loading_screen.image, raw_data.loading_screen);
   return 0;
 }
@@ -85,7 +86,7 @@ int data_load_ui_interaction() {
   int width = raw_data.ui_interaction_w;
   int height = raw_data.ui_interaction_h;
   game_data.ui_interaction.image = ansigraphic_newImage(width, height);
-  game_data.ui_interaction.xy.x = game.width - 1 - width;
+  game_data.ui_interaction.xy.x = WIDTH - 1 - width;
   game_data.ui_interaction.xy.y = 0;
   data_load_raw(game_data.ui_interaction.image, raw_data.ui_interaction);
   return 0;
@@ -95,7 +96,7 @@ int data_load_ui_medecine() {
   int width = raw_data.ui_medecine_w;
   int height = raw_data.ui_medecine_h;
   game_data.ui_medecine.image = ansigraphic_newImage(width, height);
-  game_data.ui_medecine.xy.x = game.width - 1 - width;
+  game_data.ui_medecine.xy.x = WIDTH - 1 - width;
   game_data.ui_medecine.xy.y = height+1;
   data_load_raw(game_data.ui_medecine.image, raw_data.ui_medecine);
   return 0;
@@ -105,7 +106,7 @@ int data_load_ui_light() {
   int width = raw_data.ui_light_w;
   int height = raw_data.ui_light_h;
   game_data.ui_light.image = ansigraphic_newImage(width, height);
-  game_data.ui_light.xy.x = game.width - 1 - width;
+  game_data.ui_light.xy.x = WIDTH - 1 - width;
   game_data.ui_light.xy.y = 2*(height+1);
   data_load_raw(game_data.ui_light.image, raw_data.ui_light);
   return 0;
@@ -115,7 +116,7 @@ int data_load_ui_mood() {
   int width = raw_data.ui_mood_w;
   int height = raw_data.ui_mood_h;
   game_data.ui_mood.image = ansigraphic_newImage(width, height);
-  game_data.ui_mood.xy.x = game.width - 1 - width;
+  game_data.ui_mood.xy.x = WIDTH - 1 - width;
   game_data.ui_mood.xy.y = 3*(height+1);
   data_load_raw(game_data.ui_mood.image, raw_data.ui_mood);
   return 0;
@@ -125,8 +126,8 @@ int data_load_ui_time() {
   int width = raw_data.ui_time_w;
   int height = raw_data.ui_time_h;
   game_data.ui_time.image = ansigraphic_newImage(width, height);
-  game_data.ui_time.xy.x = game.width/2 - width;
-  game_data.ui_time.xy.y = game.height/2 - height;
+  game_data.ui_time.xy.x = WIDTH/2 - width;
+  game_data.ui_time.xy.y = HEIGHT/2 - height;
   data_load_raw(game_data.ui_time.image, raw_data.ui_time);
   return 0;
 }

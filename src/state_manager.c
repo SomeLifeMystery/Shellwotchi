@@ -1,6 +1,54 @@
+#include <stdlib.h>
 #include "global.h"
 
 #include "state_manager.h"
+
+void state_manager_set_state(int state) {
+  static int prev_state;
+
+  prev_state = game.state;
+
+  switch (state) {
+  case STATE_PREVIUS:
+    state_manager_set_state(prev_state);
+    break;
+  case GAMESTATE_STARTUP:
+    game.state = GAMESTATE_STARTUP;
+    break;
+  case GAMESTATE_MAIN:
+    set_state_GAMESTATE_MAIN();
+    break;
+  case GAMESTATE_STATS:
+    set_state_GAMESTATE_STATS();
+    break;
+  case GAMESTATE_FOOD:
+    set_state_GAMESTATE_FOOD();
+    break;
+  case GAMESTATE_BATH:
+    set_state_GAMESTATE_BATH();
+    break;
+  case GAMESTATE_SPORT:
+    set_state_GAMESTATE_SPORT();
+    break;
+  case GAMESTATE_INTERACTION:
+    set_state_GAMESTATE_INTERACTION();
+    break;
+  case GAMESTATE_MEDECINE:
+    set_state_GAMESTATE_MEDECINE();
+    break;
+  case GAMESTATE_LIGHT:
+    set_state_GAMESTATE_LIGHT();
+    break;
+  case GAMESTATE_TIME:
+    set_state_GAMESTATE_TIME();
+    break;
+  case GAMESTATE_EXIT:
+    set_state_GAMESTATE_EXIT();
+    break;
+  default:
+    exit(1);
+  }
+}
 
 void set_state_GAMESTATE_EXIT() {
   game.state = GAMESTATE_EXIT;

@@ -20,9 +20,6 @@
 
 game_t game = {
   .magic = 123456789666,
-  .height = 20,
-  .width = 80,
-  .frames_per_second = 15,
   .state = GAMESTATE_STARTUP,
   .event = 0,
   .lightOnOff = 1
@@ -31,9 +28,9 @@ game_t game = {
 int main(int ac, char**av) {
   saveFile="saved_game.sav";
   data_load_loading_screen();
-  screen = ansigraphic_newImage(game.width, game.height);
+  screen = ansigraphic_newImage(WIDTH, HEIGHT);
   clock_t timer, clocked = 0;
-  int delay = 1000 / game.frames_per_second;
+  int delay = 1000 / FRAMES_PER_SECOND;
   int event = 0;
   
   mode_raw(1);

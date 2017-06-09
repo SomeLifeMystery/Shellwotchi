@@ -72,7 +72,7 @@ void display_ui() {
 
 void display_pet() {
   ansigraphic_animatedSpritePrint(screen, game_data.pet_age0);
-  ansigraphic_animatedSprite_tick(game_data.pet_age0, 1000/game.frames_per_second);  
+  ansigraphic_animatedSprite_tick(game_data.pet_age0, 1000/FRAMES_PER_SECOND);  
 }
 
 int display_GAMESTATE_STARTUP() {

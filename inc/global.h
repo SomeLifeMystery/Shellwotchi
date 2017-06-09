@@ -3,9 +3,6 @@
 
 typedef struct {
   unsigned long magic;
-  int width;
-  int height;
-  int frames_per_second;
   int state;
   int selection_index;
   int event;

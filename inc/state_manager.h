@@ -2,6 +2,7 @@
 #define STATE_MANAGER_H_
 
 enum {
+  STATE_PREVIUS,
   GAMESTATE_STARTUP,
   GAMESTATE_MAIN,
   GAMESTATE_STATS,
@@ -15,6 +16,7 @@ enum {
   GAMESTATE_EXIT
 };
 
+void state_manager_set_state(int state);
 void set_state_GAMESTATE_EXIT();
 void set_state_GAMESTATE_MAIN();
 void set_state_GAMESTATE_STATS();
