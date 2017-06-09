@@ -9,14 +9,6 @@
 #include "process.h"
 
 int process_GAMESTATE_STARTUP() {
-  dhms_clock_reset();
-  game_t tmpGame; memcpy(&tmpGame, &game, sizeof(game));
-  struct s_dhms_clock tmpClock; memcpy(&tmpClock, &dhms_clock, sizeof(dhms_clock));
-  saveManager_load();
-  if (game.magic!=123456789666) {
-    memcpy(&game, &tmpGame, sizeof(game));
-    memcpy(&dhms_clock, &tmpClock, sizeof(dhms_clock));
-  }
   data_load_ui_stats();
   data_load_ui_food();
   data_load_ui_bath();
@@ -27,6 +19,14 @@ int process_GAMESTATE_STARTUP() {
   data_load_ui_mood();
   data_load_ui_time();
   data_load_pet_age0();
+  dhms_clock_reset();
+  game_t tmpGame; memcpy(&tmpGame, &game, sizeof(game));
+  struct s_dhms_clock tmpClock; memcpy(&tmpClock, &dhms_clock, sizeof(dhms_clock));
+  saveManager_load();
+  if (game.magic!=123456789666) {
+    memcpy(&game, &tmpGame, sizeof(game));
+    memcpy(&dhms_clock, &tmpClock, sizeof(dhms_clock));
+  }// else 
   set_state_GAMESTATE_MAIN();
   return 0;
 }
