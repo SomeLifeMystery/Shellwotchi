@@ -44,6 +44,14 @@ int main(int ac, char**av) {
       process_GAMESTATE_STARTUP();
       handle_events_GAMESTATE_STARTUP();
       break;
+    case GAMESTATE_STARTUP_SET_TIME:
+      display_GAMESTATE_STARTUP_SET_TIME();
+      handle_events_GAMESTATE_STARTUP_SET_TIME();
+      break;
+    case GAMESTATE_STARTUP_SET_PET_NAME:
+      display_GAMESTATE_STARTUP_SET_PET_NAME();
+      handle_events_GAMESTATE_STARTUP_SET_PET_NAME();
+      break;
     case GAMESTATE_MAIN:
       display_GAMESTATE_MAIN();
       handle_events_GAMESTATE_MAIN();

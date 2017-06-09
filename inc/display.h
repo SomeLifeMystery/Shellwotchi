@@ -12,6 +12,8 @@ extern ansigraphic_image_t* screen;
 void display_ui();
 void display_pet();
 int display_GAMESTATE_STARTUP();
+int display_GAMESTATE_STARTUP_SET_TIME();
+int display_GAMESTATE_STARTUP_SET_PET_NAME();
 int display_GAMESTATE_MAIN();
 int display_GAMESTATE_TIME();
 

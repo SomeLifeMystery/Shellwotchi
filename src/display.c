@@ -92,9 +92,8 @@ int display_GAMESTATE_MAIN() {
   return 0;
 }
 
-int display_GAMESTATE_TIME() {
+int display_time() {
   ansigraphic_ivector2_t xy; xy.y=0;
-  ansigraphic_imageFill(screen, ' ', "000", "015");
   xy.x = 0;
   ansigraphic_pixelSetValue(game_data.ui_time.image, &xy, 48 + (dhms_clock.h / 10));
   xy.x = 1;
@@ -108,6 +107,63 @@ int display_GAMESTATE_TIME() {
   xy.x = 7;
   ansigraphic_pixelSetValue(game_data.ui_time.image, &xy, 48 + (dhms_clock.s % 10));
   ansigraphic_spritePrint(screen, &game_data.ui_time);
+}
+
+int display_GAMESTATE_TIME() {
+  ansigraphic_imageFill(screen, ' ', "000", "015");
+  display_time();
   ansigraphic_imagePrint(screen);
   return 0;
+}
+
+int display_GAMESTATE_STARTUP_SET_TIME() {
+  char fgC[3], bgC[3];
+  ansigraphic_ivector2_t xy; xy.y=0;
+  switch (game.selection_index) {
+  case 0:
+    xy.x = 0;
+    ansigraphic_pixelGetColor(game_data.ui_time.image, &xy, fgC, bgC);
+    ansigraphic_pixelSetColor(game_data.ui_time.image, &xy, bgC, fgC);
+    display_time();
+    ansigraphic_pixelSetColor(game_data.ui_time.image, &xy, fgC, bgC);
+    break;
+  case 1:
+    xy.x = 1;
+    ansigraphic_pixelGetColor(game_data.ui_time.image, &xy, fgC, bgC);
+    ansigraphic_pixelSetColor(game_data.ui_time.image, &xy, bgC, fgC);
+    display_time();
+    ansigraphic_pixelSetColor(game_data.ui_time.image, &xy, fgC, bgC);
+    break;
+  case 2:
+    xy.x = 3;
+    ansigraphic_pixelGetColor(game_data.ui_time.image, &xy, fgC, bgC);
+    ansigraphic_pixelSetColor(game_data.ui_time.image, &xy, bgC, fgC);
+    display_time();
+    ansigraphic_pixelSetColor(game_data.ui_time.image, &xy, fgC, bgC);
+    break;
+  case 3:
+    xy.x = 4;
+    ansigraphic_pixelGetColor(game_data.ui_time.image, &xy, fgC, bgC);
+    ansigraphic_pixelSetColor(game_data.ui_time.image, &xy, bgC, fgC);
+    display_time();
+    ansigraphic_pixelSetColor(game_data.ui_time.image, &xy, fgC, bgC);
+    break;
+  case 4:
+    xy.x = 6;
+    ansigraphic_pixelGetColor(game_data.ui_time.image, &xy, fgC, bgC);
+    ansigraphic_pixelSetColor(game_data.ui_time.image, &xy, bgC, fgC);
+    display_time();
+    ansigraphic_pixelSetColor(game_data.ui_time.image, &xy, fgC, bgC);
+    break;
+  case 5:
+    xy.x = 7;
+    ansigraphic_pixelGetColor(game_data.ui_time.image, &xy, fgC, bgC);
+    ansigraphic_pixelSetColor(game_data.ui_time.image, &xy, bgC, fgC);
+    display_time();
+    ansigraphic_pixelSetColor(game_data.ui_time.image, &xy, fgC, bgC);
+    break;
+  }
+}
+
+int display_GAMESTATE_STARTUP_SET_PET_NAME() {
 }

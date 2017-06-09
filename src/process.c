@@ -5,6 +5,7 @@
 #include "state_manager.h"
 #include "dhms_clock.h"
 #include "saveManager.h"
+#include "state_manager.h"
 
 #include "process.h"
 
@@ -26,8 +27,8 @@ int process_GAMESTATE_STARTUP() {
   if (game.magic!=123456789666) {
     memcpy(&game, &tmpGame, sizeof(game));
     memcpy(&dhms_clock, &tmpClock, sizeof(dhms_clock));
-    //state_manager_set_state(GAMEDTATE_STARTUP_SET_TIME);
-  } //else 
+    state_manager_set_state(GAMESTATE_STARTUP_SET_TIME);
+  } else 
   state_manager_set_state(GAMESTATE_MAIN);
   return 0;
 }
