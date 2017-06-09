@@ -54,6 +54,16 @@ void set_state_GAMESTATE_EXIT() {
   game.state = GAMESTATE_EXIT;
 }
 
+void set_state_GAMESTATE_STARTUP_SET_TIME() {
+  game.state = GAMESTATE_STARTUP_SET_TIME;
+  game.selection_index = 0;
+}
+
+void set_state_GAMESTATE_STARTUP_SET_PET_NAME() {
+  game.state = GAMESTATE_STARTUP_SET_PET_NAME;
+  game.selection_index = 0;
+}
+
 void set_state_GAMESTATE_MAIN() {
   game.state = GAMESTATE_MAIN;
   game.selection_index = -1;
@@ -96,4 +106,3 @@ void set_state_GAMESTATE_LIGHT() {
 void set_state_GAMESTATE_TIME() {
   game.state = GAMESTATE_TIME;
 }
-

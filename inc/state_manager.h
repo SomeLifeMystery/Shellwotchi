@@ -4,6 +4,8 @@
 enum {
   STATE_PREVIUS,
   GAMESTATE_STARTUP,
+  GAMESTATE_STARTUP_SET_TIME,
+  GAMESTATE_STARTUP_SET_PET_NAME,
   GAMESTATE_MAIN,
   GAMESTATE_STATS,
   GAMESTATE_FOOD,
@@ -18,6 +20,8 @@ enum {
 
 void state_manager_set_state(int state);
 void set_state_GAMESTATE_EXIT();
+void set_state_GAMESTATE_STARTUP_SET_TIME();
+void set_state_GAMESTATE_STARTUP_SET_PET_NAME();
 void set_state_GAMESTATE_MAIN();
 void set_state_GAMESTATE_STATS();
 void set_state_GAMESTATE_FOOD();

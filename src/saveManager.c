@@ -24,8 +24,6 @@ int saveManager_load() {
 int saveManager_save() {
   int fd, read_byte, size=(sizeof(game) + sizeof(dhms_clock));
 
-  game.magic = 123456789333;
-  errno=0;
   fd = open(saveFile, O_CREAT|O_WRONLY, (mode_t)0666);
   lseek(fd, -size, SEEK_END);
   write(fd, &game, sizeof(game));

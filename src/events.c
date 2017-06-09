@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include "global.h"
+#include "state_manager.h"
 
 #include "events.h"
 
@@ -51,7 +52,7 @@ int get_events() {
 int handle_events_GAMESTATE_STARTUP() {
     switch (game.event) {
     case 27:
-      set_state_GAMESTATE_EXIT();
+      state_manager_set_state(GAMESTATE_EXIT);
       break;
     }
 }
@@ -59,7 +60,7 @@ int handle_events_GAMESTATE_STARTUP() {
 int handle_events_GAMESTATE_MAIN() {
     switch (game.event) {
     case 27://ESC
-      set_state_GAMESTATE_EXIT();
+      state_manager_set_state(GAMESTATE_EXIT);
       break;
     case 4283163://UP
       game.selection_index-=1;
@@ -74,28 +75,28 @@ int handle_events_GAMESTATE_MAIN() {
     case 4414235://RIGHT
       switch (game.selection_index) {
       case -1:
-	set_state_GAMESTATE_TIME();
+	state_manager_set_state(GAMESTATE_TIME);
 	break;
       case 0:
-	set_state_GAMESTATE_STATS();
+        state_manager_set_state(GAMESTATE_STATS);
 	break;
       case 1:
-	set_state_GAMESTATE_FOOD();
+        state_manager_set_state(GAMESTATE_FOOD);
 	break;
       case 2:
-	set_state_GAMESTATE_BATH();
+        state_manager_set_state(GAMESTATE_BATH);
 	break;
       case 3:
-	set_state_GAMESTATE_SPORT();
+        state_manager_set_state(GAMESTATE_SPORT);
 	break;
       case 4:
-	set_state_GAMESTATE_INTERACTION();
+        state_manager_set_state(GAMESTATE_INTERACTION);
 	break;
       case 5:
-	set_state_GAMESTATE_MEDECINE();
+        state_manager_set_state(GAMESTATE_MEDECINE);
 	break;
       case 6:
-	set_state_GAMESTATE_LIGHT();
+        state_manager_set_state(GAMESTATE_LIGHT);
 	break;
       default:break;
       }
@@ -109,13 +110,13 @@ int handle_events_GAMESTATE_MAIN() {
 int handle_events_GAMESTATE_TIME() {
     switch (game.event) {
     case 27://ESC
-      set_state_GAMESTATE_EXIT();
+      state_manager_set_state(GAMESTATE_EXIT);
       break;
     case 4414235://RIGHT
-      set_state_GAMESTATE_MAIN();
+      state_manager_set_state(GAMESTATE_MAIN);
       break;
     case 4479771://LEFT
-      set_state_GAMESTATE_MAIN();
+      state_manager_set_state(GAMESTATE_MAIN);
       break;
     }
 }
