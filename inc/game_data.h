@@ -1,7 +1,7 @@
 #ifndef GAME_DATA_H_
 #define GAME_DATA_H_
 
-#include "ansiGraphic2.h"
+#include "ansiGraphic2.1.h"
 
 struct s_game_data {
   ansigraphic_sprite_t loading_screen;

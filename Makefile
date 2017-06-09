@@ -9,7 +9,7 @@ LDFLAGS=
 
 NAME=	Shellwotchi
 
-SRCS=	ansiGraphic/ansiGraphic2.c\
+SRCS=	ansiGraphic/ansiGraphic2.1.c\
 	src/dhms_clock.c\
 	src/display.c\
 	src/events.c\

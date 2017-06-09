@@ -1,7 +1,7 @@
 #ifndef DISPLAY_H_
 #define DISPLAY_H_
 
-#include "ansiGraphic2.h"
+#include "ansiGraphic2.1.h"
 
 extern ansigraphic_image_t* screen;
 
