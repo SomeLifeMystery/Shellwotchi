@@ -13,11 +13,14 @@ char* saveFile;
 int saveManager_load() {
   int fd, read_byte, size=(sizeof(game) + sizeof(dhms_clock));
 
-  fd = open(saveFile, O_RDONLY);
-  lseek(fd, -size, SEEK_END);
-  read(fd, &game, sizeof(game));
-  read(fd, &dhms_clock, sizeof(dhms_clock));
-  close(fd);
+  if (fd = open(saveFile, O_RDONLY) <= 0)
+    game.magic=0;
+  else {
+    lseek(fd, -size, SEEK_END);
+    read(fd, &game, sizeof(game));
+    read(fd, &dhms_clock, sizeof(dhms_clock));
+    close(fd);
+  }
   return 0;
 }
 
