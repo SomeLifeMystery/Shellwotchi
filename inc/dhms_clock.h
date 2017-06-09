@@ -14,6 +14,7 @@ struct s_dhms_clock {
 extern struct s_dhms_clock dhms_clock;
 
 void dhms_clock_reset();
+void dhms_clock_add_time(time_t sec);
 void dhms_clock_tick();
 
 #endif /* !DHMS_CLOCK_H_ */
