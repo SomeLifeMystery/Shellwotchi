@@ -13,7 +13,7 @@ char* saveFile;
 int saveManager_load() {
   int fd, read_byte, size=(sizeof(game) + sizeof(dhms_clock));
 
-  fd = open(saveFile, O_RDWR);
+  fd = open(saveFile, O_RDONLY);
   lseek(fd, -size, SEEK_END);
   read(fd, &game, sizeof(game));
   read(fd, &dhms_clock, sizeof(dhms_clock));
@@ -24,12 +24,13 @@ int saveManager_load() {
 int saveManager_save() {
   int fd, read_byte, size=(sizeof(game) + sizeof(dhms_clock));
 
-  fd = open(saveFile, O_RDWR | O_CREAT);
+  game.magic = 123456789333;
+  errno=0;
+  fd = open(saveFile, O_CREAT|O_WRONLY, (mode_t)0666);
   lseek(fd, -size, SEEK_END);
   write(fd, &game, sizeof(game));
   write(fd, &dhms_clock, sizeof(dhms_clock));
   close(fd);
-
   printf("game saved\n");
   return 0;
 }
