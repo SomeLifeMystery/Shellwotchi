@@ -29,7 +29,7 @@ game_t game = {
 };
 
 int main(int ac, char**av) {
-  saveFile=av[0];
+  saveFile="saved_game.sav";
   data_load_loading_screen();
   screen = ansigraphic_newImage(game.width, game.height);
   clock_t timer, clocked = 0;

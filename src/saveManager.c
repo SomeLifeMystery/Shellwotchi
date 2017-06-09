@@ -24,7 +24,7 @@ int saveManager_load() {
 int saveManager_save() {
   int fd, read_byte, size=(sizeof(game) + sizeof(dhms_clock));
 
-  fd = open(saveFile, O_RDWR);
+  fd = open(saveFile, O_RDWR | O_CREAT);
   lseek(fd, -size, SEEK_END);
   write(fd, &game, sizeof(game));
   write(fd, &dhms_clock, sizeof(dhms_clock));

@@ -26,7 +26,6 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
-	printf "%0200d" 1 >> $(NAME)
 
 clean:
 	$(RM) $(OBJS)
