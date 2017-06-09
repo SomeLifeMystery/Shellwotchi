@@ -29,7 +29,7 @@ int process_GAMESTATE_STARTUP() {
     memcpy(&dhms_clock, &tmpClock, sizeof(dhms_clock));
     state_manager_set_state(GAMESTATE_STARTUP_SET_TIME);
   } else 
-  state_manager_set_state(GAMESTATE_MAIN);
+    state_manager_set_state(GAMESTATE_MAIN);
   return 0;
 }
 

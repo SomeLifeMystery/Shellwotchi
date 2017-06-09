@@ -119,6 +119,7 @@ int display_GAMESTATE_TIME() {
 int display_GAMESTATE_STARTUP_SET_TIME() {
   char fgC[3], bgC[3];
   ansigraphic_ivector2_t xy; xy.y=0;
+  ansigraphic_imageFill(screen, ' ', "000", "015");
   switch (game.selection_index) {
   case 0:
     xy.x = 0;
@@ -163,6 +164,7 @@ int display_GAMESTATE_STARTUP_SET_TIME() {
     ansigraphic_pixelSetColor(game_data.ui_time.image, &xy, fgC, bgC);
     break;
   }
+  ansigraphic_imagePrint(screen);
 }
 
 int display_GAMESTATE_STARTUP_SET_PET_NAME() {

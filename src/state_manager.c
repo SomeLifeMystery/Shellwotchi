@@ -15,6 +15,12 @@ void state_manager_set_state(int state) {
   case GAMESTATE_STARTUP:
     game.state = GAMESTATE_STARTUP;
     break;
+  case GAMESTATE_STARTUP_SET_TIME:
+    set_state_GAMESTATE_STARTUP_SET_TIME();
+    break;
+  case GAMESTATE_STARTUP_SET_PET_NAME:
+    set_state_GAMESTATE_STARTUP_SET_PET_NAME();
+    break;
   case GAMESTATE_MAIN:
     set_state_GAMESTATE_MAIN();
     break;

@@ -57,6 +57,60 @@ int handle_events_GAMESTATE_STARTUP() {
     }
 }
 
+int handle_events_GAMESTATE_STARTUP_SET_TIME() {
+    switch (game.event) {
+    case 27://ESC
+      state_manager_set_state(GAMESTATE_EXIT);
+      break;
+    case 4283163://UP
+      switch(game.selection_index) {
+      case 0:
+	dhms_clock_add_time(36000);
+	break;
+      case 1:
+	dhms_clock_add_time(3600);
+	break;
+      case 2:
+	dhms_clock_add_time(600);
+	break;
+      case 3:
+	dhms_clock_add_time(60);
+	break;
+      case 4:
+	dhms_clock_add_time(10);
+	break;
+      case 5:
+	dhms_clock_add_time(1);
+	break;
+      default:break;
+      }
+      break;
+    case 4414235://RIGHT
+      switch (game.selection_index) {
+      case 5:
+	state_manager_set_state(GAMESTATE_MAIN);
+	break;
+      default:
+	if (game.selection_index < 5)
+	  game.selection_index += 1;
+	break;
+      }
+      break;
+    case 4479771://LEFT
+      if (game.selection_index > 0)
+	game.selection_index -= 1;
+      break;
+    }
+}
+
+int handle_events_GAMESTATE_STARTUP_SET_PET_NAME() {
+    switch (game.event) {
+    case 27:
+      state_manager_set_state(GAMESTATE_EXIT);
+      break;
+    }
+}
+
 int handle_events_GAMESTATE_MAIN() {
     switch (game.event) {
     case 27://ESC
