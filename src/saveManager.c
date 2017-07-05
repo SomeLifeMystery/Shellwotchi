@@ -13,27 +13,22 @@ char* saveFile;
 int saveManager_load() {
   int fd, read_byte, size=(sizeof(game_t) + sizeof(struct s_dhms_clock));
 
-  if (fd = open(saveFile, O_RDONLY) <= 0)
+  if ((fd = open(saveFile, O_RDONLY)) <= 0)
     game.magic=0;
   else {    
-    //lseek(fd, -size, SEEK_END);
     read(fd, &game, sizeof(game_t));
     read(fd, &dhms_clock, sizeof(struct s_dhms_clock));
     close(fd);
-    printf("%lu\n", game.magic);
-    exit(123);
   }
   return 0;
 }
 
 int saveManager_save() {
-  int fd, read_byte, size=(sizeof(game_t) + sizeof(struct s_dhms_clock));
+  int fd;
 
   fd = open(saveFile, O_CREAT|O_WRONLY, (mode_t)0666);
-  //lseek(fd, -size, SEEK_END);
   write(fd, &game, sizeof(game_t));
   write(fd, &dhms_clock, sizeof(struct s_dhms_clock));
   close(fd);
-  printf("game saved\n");
   return 0;
 }
