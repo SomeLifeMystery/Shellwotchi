@@ -38,3 +38,6 @@ int process_GAMESTATE_EXIT() {
   saveManager_save();
   exit(0);
 }
+
+int process_GAMESTATE_MAIN() {
+}
